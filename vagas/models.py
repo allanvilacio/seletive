@@ -14,6 +14,16 @@ class Tarefa(models.Model):
     data = models.DateField()
     realizada = models.BooleanField(default=False)
 
+    def icon(self):
+        if self.prioridade == 'U':
+            classe = "prioridade-vermelho"
+        elif self.prioridade == 'A':
+            classe = "prioridade-amarelo"
+        elif self.prioridade == 'B':
+            classe = "prioridade-verde"
+        return classe
+
+
     def __str__(self):
         return self.titulo
     
